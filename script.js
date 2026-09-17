@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateCursor();
 
-    document.querySelectorAll('a, button, .car-card, .service-card, .category-card, .team-card, .finance-card, .inventory-card, .faq-question').forEach(el => {
+    document.querySelectorAll('a, button, .car-card, .service-card, .category-card, .team-card, .finance-card, .blog-card, .faq-question').forEach(el => {
       el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
     });
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========== FAVORITE TOGGLE ==========
-  document.querySelectorAll('.inventory-fav').forEach(btn => {
+  document.querySelectorAll('.blog-fav').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       btn.classList.toggle('liked');
@@ -230,26 +230,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ========== FILTER BAR (Inventory page) ==========
+  // ========== FILTER BAR (Blog page) ==========
   const filterForm = document.querySelector('.filter-bar');
   if (filterForm) {
+    const filterSelects = filterForm.querySelectorAll('.filter-select');
+    const typeSel = filterSelects[0];
+    const brandSel = filterSelects[1];
+    const priceSel = filterSelects[2];
+    const searchInput = filterForm.querySelector('.filter-search input');
+    const cards = document.querySelectorAll('.blog-card');
+
+    const matchPrice = (value, range) => {
+      if (!range) return true;
+      const n = parseFloat(value);
+      if (isNaN(n)) return true;
+      switch (range) {
+        case 'Under $50K': return n < 50000;
+        case '$50K - $100K': return n >= 50000 && n < 100000;
+        case '$100K - $200K': return n >= 100000 && n < 200000;
+        case 'Over $200K': return n >= 200000;
+        default: return true;
+      }
+    };
+
+    const applyFilter = () => {
+      const type = typeSel ? typeSel.value.toLowerCase() : '';
+      const brand = brandSel ? brandSel.value.toLowerCase() : '';
+      const price = priceSel ? priceSel.value : '';
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+      cards.forEach(card => {
+        const cardType = (card.dataset.type || '').toLowerCase();
+        const cardBrand = (card.dataset.brand || '').toLowerCase();
+        const matches =
+          (!type || cardType === type) &&
+          (!brand || cardBrand === brand) &&
+          matchPrice(card.dataset.price, price) &&
+          (!query || card.textContent.toLowerCase().includes(query));
+        card.style.display = matches ? '' : 'none';
+      });
+    };
+
     filterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Basic client-side filter
-      const searchVal = document.querySelector('.filter-search input')?.value.toLowerCase() || '';
-      const cards = document.querySelectorAll('.inventory-card');
-      cards.forEach(card => {
-        const name = card.querySelector('.inventory-name')?.textContent.toLowerCase() || '';
-        const desc = card.querySelector('.inventory-desc')?.textContent.toLowerCase() || '';
-        if (name.includes(searchVal) || desc.includes(searchVal)) {
-          card.style.display = '';
-          card.style.opacity = '1';
-        } else {
-          card.style.opacity = '0';
-          setTimeout(() => { card.style.display = 'none'; }, 300);
-        }
-      });
+      applyFilter();
     });
+    filterSelects.forEach(sel => sel.addEventListener('change', applyFilter));
+    if (searchInput) searchInput.addEventListener('input', applyFilter);
   }
 
   // ========== CONTACT FORM ==========
@@ -514,11 +541,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function openSidebar() {
+    if (!sidebar) return;
+    sidebar.classList.add('open');
+    if (overlay) overlay.classList.add('show');
+    document.documentElement.classList.add('dash-nav-open');
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('open');
+    if (overlay) overlay.classList.remove('show');
+    document.documentElement.classList.remove('dash-nav-open');
+  }
+
   navItems.forEach(item => {
     item.addEventListener('click', () => {
       showSection(item.dataset.tab);
-      if (sidebar) sidebar.classList.remove('open');
-      if (overlay) overlay.classList.remove('show');
+      closeSidebar();
     });
   });
 
@@ -526,8 +565,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const target = link.getAttribute('data-goto');
-      if (sidebar) sidebar.classList.remove('open');
-      if (overlay) overlay.classList.remove('show');
+      closeSidebar();
       showSection(target);
       const dashed = document.querySelector('#dashSidebar');
       highlightedNav(dashed, target);
@@ -544,22 +582,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.dash-menu-toggle');
   const sidebarClose = document.querySelector('.dash-sidebar-close');
   if (menuToggle && sidebar) {
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.add('open');
-      if (overlay) overlay.classList.add('show');
-    });
+    menuToggle.addEventListener('click', openSidebar);
   }
   if (sidebarClose && sidebar) {
-    sidebarClose.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      if (overlay) overlay.classList.remove('show');
-    });
+    sidebarClose.addEventListener('click', closeSidebar);
   }
   if (overlay) {
-    overlay.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('show');
-    });
+    overlay.addEventListener('click', closeSidebar);
   }
 
   // ========== DASHBOARD: DROPDOWNS ==========
@@ -581,7 +610,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.addEventListener('click', (e) => {
     document.querySelectorAll('.dash-dropdown.open').forEach(dd => {
-      if (!dd.closest('.dash-notif') && !dd.closest('.dash-user')) dd.classList.remove('open');
+      if (!dd.parentElement.contains(e.target)) dd.classList.remove('open');
+    });
+  });
+
+  // ========== DASHBOARD: NOTIFICATION ITEMS -> 404 ==========
+  document.querySelectorAll('.dash-notif-item').forEach(item => {
+    item.addEventListener('click', () => {
+      window.location.href = '404.html';
     });
   });
 
@@ -600,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========== SEARCH BARS -> 404 ON ENTER ==========
-  document.querySelectorAll('.dash-search input, .filter-search input').forEach(input => {
+  document.querySelectorAll('.dash-search input').forEach(input => {
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();

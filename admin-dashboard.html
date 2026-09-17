@@ -23,7 +23,7 @@
   <!-- SIDEBAR -->
   <aside class="dash-sidebar" id="dashSidebar">
     <div class="dash-sidebar-head">
-<a href="index.html" class="logo logo-img">
+<a href="admin-dashboard.html" class="logo logo-img">
         <img src="Assets/logo.webp" alt="Stackly">
       </a>
       <button class="dash-sidebar-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
@@ -32,7 +32,7 @@
     <nav class="dash-nav">
       <span class="dash-nav-label">Management</span>
       <button class="dash-nav-item active" data-tab="overview"><i class="fas fa-gauge-high"></i> Overview</button>
-      <button class="dash-nav-item" data-tab="inventory"><i class="fas fa-warehouse"></i> Inventory</button>
+      <button class="dash-nav-item" data-tab="blog"><i class="fas fa-warehouse"></i> Blog</button>
       <button class="dash-nav-item" data-tab="sales"><i class="fas fa-receipt"></i> Sales</button>
       <button class="dash-nav-item" data-tab="customers"><i class="fas fa-users"></i> Customers</button>
       <button class="dash-nav-item" data-tab="bookings"><i class="fas fa-calendar-check"></i> Test Drives</button>
@@ -68,7 +68,7 @@
       </div>
       <div class="dash-topbar-actions">
         <div class="dash-notif" id="dashNotif">
-          <button class="dash-icon-btn" aria-label="Notifications" onclick="window.location.href='404.html'"><i class="far fa-bell"></i><span class="dash-dot"></span></button>
+          <button class="dash-icon-btn" aria-label="Notifications"><i class="far fa-bell"></i><span class="dash-dot"></span></button>
           <div class="dash-dropdown dash-notif-drop">
             <div class="dash-drop-title">Notifications</div>
             <div class="dash-notif-item"><i class="fas fa-handshake"></i><div><strong>New sale closed</strong><small>Eclipse M5 · $78,400 · 1h ago</small></div></div>
@@ -77,13 +77,13 @@
           </div>
         </div>
         <div class="dash-user" id="dashUser">
-          <button class="dash-user-btn" aria-label="Account" onclick="window.location.href='404.html'">
+          <button class="dash-user-btn" aria-label="Account">
             <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Daniel Reyes">
             <span class="dash-user-name">Daniel Reyes</span>
             <i class="fas fa-chevron-down"></i>
           </button>
           <div class="dash-dropdown dash-user-drop">
-            <a href="#settings" class="dash-drop-link" data-goto="settings"><i class="fas fa-gear"></i> Settings</a>
+            <a href="404.html" class="dash-drop-link" data-goto="settings"><i class="fas fa-gear"></i> Settings</a>
             <a href="index.html" class="dash-drop-link"><i class="fas fa-house"></i> Back to Site</a>
             <a href="signin.html" class="dash-drop-link dash-drop-danger"><i class="fas fa-arrow-right-from-bracket"></i> Sign Out</a>
           </div>
@@ -206,18 +206,18 @@
               <div class="dash-timeline-item"><span class="dash-timeline-dot gold"></span><div><strong>New sale: Eclipse M5</strong><small>Alice Ford · just now</small></div></div>
               <div class="dash-timeline-item"><span class="dash-timeline-dot green"></span><div><strong>Test drive approved</strong><small>Velocity 911 · 12 min ago</small></div></div>
               <div class="dash-timeline-item"><span class="dash-timeline-dot gold"></span><div><strong>New inquiry</strong><small>Phantom Royale · 38 min ago</small></div></div>
-              <div class="dash-timeline-item"><span class="dash-timeline-dot green"></span><div><strong>Inventory updated</strong><small>+3 Nova EV units · 1h ago</small></div></div>
+              <div class="dash-timeline-item"><span class="dash-timeline-dot green"></span><div><strong>Blog updated</strong><small>+3 Nova EV units · 1h ago</small></div></div>
               <div class="dash-timeline-item"><span class="dash-timeline-dot red"></span><div><strong>Service request</strong><small>Canyon Pro SUV · 2h ago</small></div></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= INVENTORY ================= -->
-      <section class="dash-section" id="inventory">
+      <!-- ================= BLOG ================= -->
+      <section class="dash-section" id="blog">
         <div class="dash-heading">
           <div>
-            <h2>Vehicle <span class="gold-text">Inventory</span></h2>
+            <h2>Vehicle <span class="gold-text">Blog</span></h2>
             <p>Manage your showroom stock.</p>
           </div>
           <button class="btn btn-gold" onclick="window.location.href='404.html'">Add Vehicle <i class="fas fa-plus"></i></button>
