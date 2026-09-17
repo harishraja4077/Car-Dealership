@@ -220,13 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.blog-fav').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      btn.classList.toggle('liked');
-      const icon = btn.querySelector('i');
-      if (btn.classList.contains('liked')) {
-        icon.className = 'fas fa-heart';
-      } else {
-        icon.className = 'far fa-heart';
-      }
+      window.location.href = '404.html';
     });
   });
 
@@ -648,9 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========== DASHBOARD: FAVORITE HEARTS ==========
   document.querySelectorAll('.dash-heart').forEach(btn => {
     btn.addEventListener('click', () => {
-      btn.classList.toggle('liked');
-      const icon = btn.querySelector('i');
-      icon.className = btn.classList.contains('liked') ? 'fas fa-heart' : 'far fa-heart';
+      window.location.href = '404.html';
     });
   });
 
