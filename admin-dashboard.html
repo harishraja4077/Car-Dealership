@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Stackly</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b0d10'/><circle cx='50' cy='50' r='44' fill='none' stroke='%23c9a44c' stroke-width='7'/><circle cx='50' cy='50' r='15' fill='%23c9a44c'/><rect x='46' y='10' width='8' height='30' rx='4' fill='%23c9a44c'/><rect x='46' y='60' width='8' height='30' rx='4' fill='%23c9a44c'/><rect x='10' y='46' width='30' height='8' rx='4' fill='%23c9a44c'/><rect x='60' y='46' width='30' height='8' rx='4' fill='%23c9a44c'/></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="loader">
+    <div class="loader-logo gold-text">STACKLY</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-head">
+<a href="index.html" class="logo logo-img">
+        <img src="Assets/logo.webp" alt="Stackly">
+      </a>
+      <button class="dash-sidebar-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    </div>
+
+    <nav class="dash-nav">
+      <span class="dash-nav-label">Management</span>
+      <button class="dash-nav-item active" data-tab="overview"><i class="fas fa-gauge-high"></i> Overview</button>
+      <button class="dash-nav-item" data-tab="inventory"><i class="fas fa-warehouse"></i> Inventory</button>
+      <button class="dash-nav-item" data-tab="sales"><i class="fas fa-receipt"></i> Sales</button>
+      <button class="dash-nav-item" data-tab="customers"><i class="fas fa-users"></i> Customers</button>
+      <button class="dash-nav-item" data-tab="bookings"><i class="fas fa-calendar-check"></i> Test Drives</button>
+      <button class="dash-nav-item" data-tab="messages"><i class="fas fa-envelope"></i> Inquiries<span class="dash-badge">14</span></button>
+    </nav>
+
+    <nav class="dash-nav">
+      <span class="dash-nav-label">Insights</span>
+      <button class="dash-nav-item" data-tab="analytics"><i class="fas fa-chart-line"></i> Analytics</button>
+      <button class="dash-nav-item" data-tab="settings"><i class="fas fa-gear"></i> Settings</button>
+      <a href="signin.html" class="dash-nav-item"><i class="fas fa-arrow-right-from-bracket"></i> Sign Out</a>
+    </nav>
+
+    <div class="dash-sidebar-foot">
+      <div class="dash-sidebar-user">
+        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Daniel Reyes">
+        <div>
+          <div class="dash-sidebar-user-name">Daniel Reyes</div>
+          <div class="dash-sidebar-user-role">Super Admin</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="dash-overlay" id="dashOverlay"></div>
+
+  <!-- MAIN -->
+  <div class="dash-main">
+    <header class="dash-topbar">
+      <button class="dash-menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+      <div class="dash-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="dashSearchInput" placeholder="Search records, customers..." aria-label="Search">
+      </div>
+      <div class="dash-topbar-actions">
+        <div class="dash-notif" id="dashNotif">
+          <button class="dash-icon-btn" aria-label="Notifications" onclick="window.location.href='404.html'"><i class="far fa-bell"></i><span class="dash-dot"></span></button>
+          <div class="dash-dropdown dash-notif-drop">
+            <div class="dash-drop-title">Notifications</div>
+            <div class="dash-notif-item"><i class="fas fa-handshake"></i><div><strong>New sale closed</strong><small>Eclipse M5 · $78,400 · 1h ago</small></div></div>
+            <div class="dash-notif-item"><i class="fas fa-calendar-check"></i><div><strong>Test drive approved</strong><small>Velocity 911 · 2h ago</small></div></div>
+            <div class="dash-notif-item"><i class="fas fa-exclamation-triangle"></i><div><strong>Low stock</strong><small>Canyon Pro SUV · 3 left</small></div></div>
+          </div>
+        </div>
+        <div class="dash-user" id="dashUser">
+          <button class="dash-user-btn" aria-label="Account" onclick="window.location.href='404.html'">
+            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Daniel Reyes">
+            <span class="dash-user-name">Daniel Reyes</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="dash-dropdown dash-user-drop">
+            <a href="#settings" class="dash-drop-link" data-goto="settings"><i class="fas fa-gear"></i> Settings</a>
+            <a href="index.html" class="dash-drop-link"><i class="fas fa-house"></i> Back to Site</a>
+            <a href="signin.html" class="dash-drop-link dash-drop-danger"><i class="fas fa-arrow-right-from-bracket"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="dash-content" id="dashContent">
+
+      <!-- ================= OVERVIEW ================= -->
+      <section class="dash-section active" id="overview">
+        <div class="dash-banner dash-banner-admin">
+          <div>
+            <span class="section-tag">Admin Dashboard</span>
+            <h1>Welcome back, <span class="gold-text">Daniel</span></h1>
+            <p>Here's what's happening across the Stackly showroom today.</p>
+          </div>
+          <div class="dash-banner-actions">
+            <a href="404.html" class="btn btn-gold">Add Vehicle <i class="fas fa-plus"></i></a>
+          </div>
+        </div>
+
+        <div class="dash-stats">
+          <div class="dash-stat">
+            <div class="dash-stat-icon"><i class="fas fa-money-bill-trend-up"></i></div>
+            <div>
+              <div class="dash-stat-value">$4.2M</div>
+              <div class="dash-stat-label">Total Revenue</div>
+            </div>
+            <span class="dash-stat-trend up"><i class="fas fa-arrow-up"></i> +12% vs last qtr</span>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-icon"><i class="fas fa-car-on"></i></div>
+            <div>
+              <div class="dash-stat-value">152</div>
+              <div class="dash-stat-label">Cars Sold</div>
+            </div>
+            <span class="dash-stat-trend up"><i class="fas fa-arrow-up"></i> +18 this month</span>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <div class="dash-stat-value">1,024</div>
+              <div class="dash-stat-label">Active Customers</div>
+            </div>
+            <span class="dash-stat-trend up"><i class="fas fa-arrow-up"></i> +46 new</span>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <div>
+              <div class="dash-stat-value">14</div>
+              <div class="dash-stat-label">Pending Inquiries</div>
+            </div>
+            <span class="dash-stat-trend warn"><i class="fas fa-clock"></i> 3 unread</span>
+          </div>
+        </div>
+
+        <div class="dash-grid-2">
+          <div class="dash-card">
+            <div class="dash-card-head">
+              <h3><i class="fas fa-chart-simple"></i> Revenue — Last 12 Months</h3>
+              <div class="dash-card-head-right"><span class="status status-green">+12%</span></div>
+            </div>
+            <div class="chart-bars">
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:42%" title="Oct $340K"></div></div><span>Oct</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:50%" title="Nov $410K"></div></div><span>Nov</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:46%" title="Dec $380K"></div></div><span>Dec</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:58%" title="Jan $470K"></div></div><span>Jan</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:64%" title="Feb $520K"></div></div><span>Feb</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:55%" title="Mar $445K"></div></div><span>Mar</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:62%" title="Apr $505K"></div></div><span>Apr</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:71%" title="May $580K"></div></div><span>May</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:68%" title="Jun $555K"></div></div><span>Jun</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:78%" title="Jul $640K"></div></div><span>Jul</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:74%" title="Aug $605K"></div></div><span>Aug</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar highlight" style="--h:90%" title="Sep $735K"></div></div><span>Sep</span></div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-head">
+              <h3><i class="fas fa-chart-pie"></i> Sales by Category</h3>
+            </div>
+            <div class="donut-wrap">
+              <div class="donut" style="--d1:38%;--d2:27%;--d3:21%;--d4:14%"></div>
+              <div class="donut-legend">
+                <span><i class="fa-solid fa-square gold"></i> Sports Cars · 38%</span>
+                <span><i class="fa-solid fa-square orange"></i> SUVs · 27%</span>
+                <span><i class="fa-solid fa-square green"></i> Luxury Sedans · 21%</span>
+                <span><i class="fa-solid fa-square gray"></i> Electric · 14%</span>
+              </div>
+            </div>
+            <div class="dash-top-models">
+              <div class="dash-card-head"><h4>Top Selling Models</h4></div>
+              <div class="dash-top-model"><span>1</span><div><strong>Velocity 911 Turbo</strong><small>24 sold</small></div><em>98%</em><div class="dash-mini-bar"><span style="--w:98%"></span></div></div>
+              <div class="dash-top-model"><span>2</span><div><strong>Eclipse M5 Sedan</strong><small>21 sold</small></div><em>86%</em><div class="dash-mini-bar"><span style="--w:86%"></span></div></div>
+              <div class="dash-top-model"><span>3</span><div><strong>Apex GT 2024</strong><small>18 sold</small></div><em>74%</em><div class="dash-mini-bar"><span style="--w:74%"></span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-grid-2">
+          <div class="dash-card dash-table-card">
+            <div class="dash-card-head"><h3><i class="fas fa-receipt"></i> Recent Sales</h3><a href="404.html" class="dash-link">View all</a></div>
+            <div class="dash-table-wrap">
+              <table class="dash-table">
+                <thead><tr><th>Customer</th><th>Vehicle</th><th>Amount</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer"><div><strong>Alice Ford</strong><small>#INV-2041</small></div></div></td><td>Eclipse M5</td><td>$78,400</td><td><span class="status status-green">Completed</span></td></tr>
+                  <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer"><div><strong>John Marsh</strong><small>#INV-2040</small></div></div></td><td>Apex GT</td><td>$89,900</td><td><span class="status status-green">Completed</span></td></tr>
+                  <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Customer"><div><strong>Emma Wright</strong><small>#INV-2038</small></div></div></td><td>Velocity 911</td><td>$125,000</td><td><span class="status status-gold">Pending</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-head"><h3><i class="fas fa-activity"></i> Live Activity Feed</h3></div>
+            <div class="dash-timeline">
+              <div class="dash-timeline-item"><span class="dash-timeline-dot gold"></span><div><strong>New sale: Eclipse M5</strong><small>Alice Ford · just now</small></div></div>
+              <div class="dash-timeline-item"><span class="dash-timeline-dot green"></span><div><strong>Test drive approved</strong><small>Velocity 911 · 12 min ago</small></div></div>
+              <div class="dash-timeline-item"><span class="dash-timeline-dot gold"></span><div><strong>New inquiry</strong><small>Phantom Royale · 38 min ago</small></div></div>
+              <div class="dash-timeline-item"><span class="dash-timeline-dot green"></span><div><strong>Inventory updated</strong><small>+3 Nova EV units · 1h ago</small></div></div>
+              <div class="dash-timeline-item"><span class="dash-timeline-dot red"></span><div><strong>Service request</strong><small>Canyon Pro SUV · 2h ago</small></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INVENTORY ================= -->
+      <section class="dash-section" id="inventory">
+        <div class="dash-heading">
+          <div>
+            <h2>Vehicle <span class="gold-text">Inventory</span></h2>
+            <p>Manage your showroom stock.</p>
+          </div>
+          <button class="btn btn-gold" onclick="window.location.href='404.html'">Add Vehicle <i class="fas fa-plus"></i></button>
+        </div>
+        <div class="dash-card dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table dash-table-wide">
+              <thead><tr><th>Vehicle</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td><div class="dash-cell-entity"><img src="Assets/images/car2.webp" alt="Velocity 911"><div><strong>Velocity 911 Turbo</strong><small>VIN V-911-2024</small></div></div></td><td>Sports</td><td>$125,000</td><td>04</td><td><span class="status status-green">In Stock</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Edit</button><button class="dash-icon-btn small" aria-label="Delete" onclick="window.location.href='404.html'"><i class="far fa-trash-can"></i></button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="Assets/images/car3.webp" alt="Eclipse M5"><div><strong>Eclipse M5 Sedan</strong><small>VIN E-502-2024</small></div></div></td><td>Sedan</td><td>$68,500</td><td>07</td><td><span class="status status-green">In Stock</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Edit</button><button class="dash-icon-btn small" aria-label="Delete" onclick="window.location.href='404.html'"><i class="far fa-trash-can"></i></button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="Assets/images/car4.webp" alt="Canyon Pro"><div><strong>Canyon Pro SUV</strong><small>VIN C-310-2024</small></div></div></td><td>SUV</td><td>$74,900</td><td>03</td><td><span class="status status-warn">Low Stock</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Edit</button><button class="dash-icon-btn small" aria-label="Delete" onclick="window.location.href='404.html'"><i class="far fa-trash-can"></i></button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="Assets/images/car7.webp" alt="Phantom Royale"><div><strong>Phantom Royale Edition</strong><small>VIN P-900-2024</small></div></div></td><td>Flagship</td><td>$320,000</td><td>01</td><td><span class="status status-green">In Stock</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Edit</button><button class="dash-icon-btn small" aria-label="Delete" onclick="window.location.href='404.html'"><i class="far fa-trash-can"></i></button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="Assets/images/car10.webp" alt="Nova EV"><div><strong>Nova Electric GT</strong><small>VIN N-220-2025</small></div></div></td><td>Electric</td><td>$88,500</td><td>00</td><td><span class="status status-danger">Sold Out</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Edit</button><button class="dash-icon-btn small" aria-label="Delete" onclick="window.location.href='404.html'"><i class="far fa-trash-can"></i></button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="Assets/images/car1.webp" alt="Apex GT"><div><strong>Apex GT 2024</strong><small>VIN A-550-2024</small></div></div></td><td>Sports</td><td>$89,900</td><td>06</td><td><span class="status status-green">In Stock</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Edit</button><button class="dash-icon-btn small" aria-label="Delete" onclick="window.location.href='404.html'"><i class="far fa-trash-can"></i></button></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SALES ================= -->
+      <section class="dash-section" id="sales">
+        <div class="dash-heading">
+          <div>
+            <h2>Sales <span class="gold-text">Records</span></h2>
+            <p>Track every deal closed this quarter.</p>
+          </div>
+          <button class="btn btn-outline" onclick="window.location.href='404.html'"><i class="fas fa-download"></i> Export CSV</button>
+        </div>
+        <div class="dash-card dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table dash-table-wide">
+              <thead><tr><th>Invoice</th><th>Customer</th><th>Vehicle</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>#INV-2041</td><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer"><div><strong>Alice Ford</strong><small>alice.ford@gmail.com</small></div></div></td><td>Eclipse M5</td><td>15 Sep 2026</td><td>$78,400</td><td><span class="status status-green">Completed</span></td></tr>
+                <tr><td>#INV-2040</td><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Customer"><div><strong>John Marsh</strong><small>john.marsh@gmail.com</small></div></div></td><td>Apex GT</td><td>12 Sep 2026</td><td>$89,900</td><td><span class="status status-green">Completed</span></td></tr>
+                <tr><td>#INV-2038</td><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Customer"><div><strong>Emma Wright</strong><small>emma.wright@gmail.com</small></div></div></td><td>Velocity 911</td><td>09 Sep 2026</td><td>$125,000</td><td><span class="status status-gold">Pending</span></td></tr>
+                <tr><td>#INV-2035</td><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Customer"><div><strong>Omar Hassan</strong><small>omar.h@gmail.com</small></div></div></td><td>Canyon Pro SUV</td><td>04 Sep 2026</td><td>$74,900</td><td><span class="status status-green">Completed</span></td></tr>
+                <tr><td>#INV-2031</td><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Customer"><div><strong>Lena Kaur</strong><small>lena.k@gmail.com</small></div></div></td><td>Nova Electric GT</td><td>28 Aug 2026</td><td>$88,500</td><td><span class="status status-danger">Refunded</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CUSTOMERS ================= -->
+      <section class="dash-section" id="customers">
+        <div class="dash-heading">
+          <div>
+            <h2>Customer <span class="gold-text">Directory</span></h2>
+            <p>Your refined clientele and their activity.</p>
+          </div>
+        </div>
+        <div class="dash-customers">
+          <div class="dash-customer-card">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Alice Ford">
+            <strong>Alice Ford</strong>
+            <small>alice.ford@gmail.com</small>
+            <span class="status status-green">VIP</span>
+            <span class="dash-customer-since">Since 2021 · 2 vehicles</span>
+          </div>
+          <div class="dash-customer-card">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="John Marsh">
+            <strong>John Marsh</strong>
+            <small>john.marsh@gmail.com</small>
+            <span class="status status-green">Active</span>
+            <span class="dash-customer-since">Since 2023 · 1 vehicle</span>
+          </div>
+          <div class="dash-customer-card">
+            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emma Wright">
+            <strong>Emma Wright</strong>
+            <small>emma.wright@gmail.com</small>
+            <span class="status status-gold">Pending</span>
+            <span class="dash-customer-since">Since 2024 · 0 vehicles</span>
+          </div>
+          <div class="dash-customer-card">
+            <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Omar Hassan">
+            <strong>Omar Hassan</strong>
+            <small>omar.h@gmail.com</small>
+            <span class="status status-green">Active</span>
+            <span class="dash-customer-since">Since 2020 · 3 vehicles</span>
+          </div>
+          <div class="dash-customer-card">
+            <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Lena Kaur">
+            <strong>Lena Kaur</strong>
+            <small>lena.k@gmail.com</small>
+            <span class="status status-gray">Inactive</span>
+            <span class="dash-customer-since">Since 2022 · 1 vehicle</span>
+          </div>
+          <div class="dash-customer-card">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Adrian Cole">
+            <strong>Adrian Cole</strong>
+            <small>adrian.cole@gmail.com</small>
+            <span class="status status-green">VIP</span>
+            <span class="dash-customer-since">Since 2019 · 2 vehicles</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TEST DRIVES ================= -->
+      <section class="dash-section" id="bookings">
+        <div class="dash-heading">
+          <div>
+            <h2>Test Drive <span class="gold-text">Requests</span></h2>
+            <p>Approve or reschedule upcoming bookings.</p>
+          </div>
+        </div>
+        <div class="dash-card dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table dash-table-wide">
+              <thead><tr><th>Customer</th><th>Vehicle</th><th>Date &amp; Time</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer"><div><strong>Maya Singh</strong><small>+1 310 555 0192</small></div></div></td><td>Velocity 911</td><td>Fri 18 Sep · 10:00 AM</td><td><span class="status status-green">Confirmed</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Reschedule</button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/60.jpg" alt="Customer"><div><strong>David Kim</strong><small>+1 424 555 0178</small></div></div></td><td>Phantom Royale</td><td>Sat 26 Sep · 03:30 PM</td><td><span class="status status-gold">Pending</span></td><td><div class="dash-row-actions"><button class="dash-approve" onclick="window.location.href='404.html'">Approve</button><button class="dash-reject" onclick="window.location.href='404.html'">Decline</button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Customer"><div><strong>Priya Nair</strong><small>+1 213 555 0155</small></div></div></td><td>Nova Electric GT</td><td>Mon 21 Sep · 11:30 AM</td><td><span class="status status-gold">Pending</span></td><td><div class="dash-row-actions"><button class="dash-approve" onclick="window.location.href='404.html'">Approve</button><button class="dash-reject" onclick="window.location.href='404.html'">Decline</button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer"><div><strong>Adrian Cole</strong><small>+1 310 555 0142</small></div></div></td><td>Velocity 911</td><td>Fri 18 Sep · 10:00 AM</td><td><span class="status status-green">Confirmed</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">Reschedule</button></div></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/18.jpg" alt="Customer"><div><strong>Grace Lee</strong><small>+1 818 555 0119</small></div></div></td><td>Canyon Pro SUV</td><td>Wed 16 Sep · 02:00 PM</td><td><span class="status status-gray">Completed</span></td><td><div class="dash-row-actions"><button class="dash-table-btn" onclick="window.location.href='404.html'">View</button></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INQUIRIES ================= -->
+      <section class="dash-section" id="messages">
+        <div class="dash-heading">
+          <div>
+            <h2>Customer <span class="gold-text">Inquiries</span></h2>
+            <p>Respond to leads from the website.</p>
+          </div>
+        </div>
+        <div class="dash-card dash-table-card">
+          <div class="dash-table-wrap">
+            <table class="dash-table dash-table-wide">
+              <thead><tr><th>From</th><th>Subject</th><th>Vehicle</th><th>Received</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Customer"><div><strong>Michael Chen</strong><small>michael.c@gmail.com</small></div></div></td><td>Financing options for Apex GT</td><td>Apex GT</td><td>2h ago</td><td><span class="status status-gold">Unread</span></td><td><button class="dash-table-btn" onclick="window.location.href='404.html'">Reply</button></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer"><div><strong>Sarah Mitchell</strong><small>sarah.m@gmail.com</small></div></div></td><td>Is the Phantom Royale still available?</td><td>Phantom Royale</td><td>5h ago</td><td><span class="status status-gold">Unread</span></td><td><button class="dash-table-btn" onclick="window.location.href='404.html'">Reply</button></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/men/29.jpg" alt="Customer"><div><strong>Liam Turner</strong><small>liam.t@gmail.com</small></div></div></td><td>Trade-in value request</td><td>Eclipse M5</td><td>1d ago</td><td><span class="status status-green">Replied</span></td><td><button class="dash-table-btn" onclick="window.location.href='404.html'">View</button></td></tr>
+                <tr><td><div class="dash-cell-entity"><img src="https://randomuser.me/api/portraits/women/54.jpg" alt="Customer"><div><strong>Nora Diaz</strong><small>nora.d@gmail.com</small></div></div></td><td>Service appointment booking</td><td>Canyon Pro</td><td>1d ago</td><td><span class="status status-green">Replied</span></td><td><button class="dash-table-btn" onclick="window.location.href='404.html'">View</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ANALYTICS ================= -->
+      <section class="dash-section" id="analytics">
+        <div class="dash-heading">
+          <div>
+            <h2>Sales <span class="gold-text">Analytics</span></h2>
+            <p>Deep dive into showroom performance.</p>
+          </div>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><div class="dash-stat-icon"><i class="fas fa-percent"></i></div><div><div class="dash-stat-value">71%</div><div class="dash-stat-label">Conversion Rate</div></div><span class="dash-stat-trend up"><i class="fas fa-arrow-up"></i> +4%</span></div>
+          <div class="dash-stat"><div class="dash-stat-icon"><i class="fas fa-tag"></i></div><div><div class="dash-stat-value">$64K</div><div class="dash-stat-label">Avg. Transaction</div></div><span class="dash-stat-trend up"><i class="fas fa-arrow-up"></i> +$3K</span></div>
+          <div class="dash-stat"><div class="dash-stat-icon"><i class="fas fa-clock"></i></div><div><div class="dash-stat-value">9.4<small>d</small></div><div class="dash-stat-label">Avg. Lead Time</div></div><span class="dash-stat-trend"><i class="fas fa-minus"></i> steady</span></div>
+          <div class="dash-stat"><div class="dash-stat-icon"><i class="fas fa-rotate-left"></i></div><div><div class="dash-stat-value">3.2%</div><div class="dash-stat-label">Return Rate</div></div><span class="dash-stat-trend up"><i class="fas fa-arrow-up"></i> -1.1%</span></div>
+        </div>
+        <div class="dash-grid-2">
+          <div class="dash-card">
+            <div class="dash-card-head"><h3><i class="fas fa-chart-column"></i> Monthly Sales Volume</h3></div>
+            <div class="chart-bars chart-bars-short">
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:58%" title="Oct 62 units"></div></div><span>Oct</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:65%" title="Nov 71 units"></div></div><span>Nov</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:60%" title="Dec 66 units"></div></div><span>Dec</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:72%" title="Jan 80 units"></div></div><span>Jan</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:78%" title="Feb 87 units"></div></div><span>Feb</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:70%" title="Mar 77 units"></div></div><span>Mar</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:82%" title="Apr 92 units"></div></div><span>Apr</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:88%" title="May 99 units"></div></div><span>May</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:84%" title="Jun 95 units"></div></div><span>Jun</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:92%" title="Jul 104 units"></div></div><span>Jul</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar" style="--h:89%" title="Aug 101 units"></div></div><span>Aug</span></div>
+              <div class="chart-col"><div class="chart-col-inner"><div class="chart-bar highlight" style="--h:100%" title="Sep 115 units"></div></div><span>Sep</span></div>
+            </div>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-head"><h3><i class="fas fa-user-plus"></i> Customer Growth</h3></div>
+            <div class="growth-list">
+              <div class="growth-row"><span>New this year</span><div class="dash-mini-bar"><span style="--w:62%"></span></div><em>624</em></div>
+              <div class="growth-row"><span>Repeat buyers</span><div class="dash-mini-bar"><span style="--w:38%"></span></div><em>388</em></div>
+              <div class="growth-row"><span>Referrals</span><div class="dash-mini-bar"><span style="--w:22%"></span></div><em>221</em></div>
+              <div class="growth-row"><span>From website</span><div class="dash-mini-bar"><span style="--w:48%"></span></div><em>491</em></div>
+            </div>
+            <div class="dash-funnel-wrap">
+              <div class="dash-card-head"><h4>Conversion Funnel</h4></div>
+              <div class="funnel">
+                <div class="funnel-row"><span>Site Visitors</span><span>148,200</span><div class="funnel-bar" style="width:100%"></div></div>
+                <div class="funnel-row"><span>Leads Captured</span><span>32,610</span><div class="funnel-bar" style="width:68%"></div></div>
+                <div class="funnel-row"><span>Test Drives</span><span>8,142</span><div class="funnel-bar" style="width:42%"></div></div>
+                <div class="funnel-row"><span>Closed Sales</span><span>1,284</span><div class="funnel-bar" style="width:18%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SETTINGS ================= -->
+      <section class="dash-section" id="settings">
+        <div class="dash-heading">
+          <div>
+            <h2>Admin <span class="gold-text">Settings</span></h2>
+            <p>Showroom configuration and team management.</p>
+          </div>
+        </div>
+        <div class="dash-grid-2">
+          <div class="dash-card">
+            <div class="dash-card-head"><h3><i class="fas fa-city"></i> Showroom Details</h3></div>
+            <form class="dash-profile-form">
+              <div class="form-group"><label>Showroom Name</label><input class="auth-input plain" type="text" value="Stackly Luxury Motors — Salem" aria-label="Showroom name"></div>
+              <div class="form-group"><label>Support Email</label><input class="auth-input plain" type="email" value="thestackly@gmail.com" aria-label="Support email"></div>
+              <div class="form-group"><label>Phone</label><input class="auth-input plain" type="tel" value="+91 70107 92745" aria-label="Phone"></div>
+              <div class="dash-login-form-actions"><button type="submit" class="btn btn-gold btn-sm">Save Settings</button></div>
+            </form>
+          </div>
+          <div class="dash-card">
+            <div class="dash-card-head"><h3><i class="fas fa-user-shield"></i> Admin Team</h3></div>
+            <div class="dash-team">
+              <div class="dash-team-user"><img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Daniel Reyes"><div><strong>Daniel Reyes</strong><small>Super Admin</small></div><span class="status status-green">Owner</span></div>
+              <div class="dash-team-user"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Mitchell"><div><strong>Sarah Mitchell</strong><small>Sales Manager</small></div><span class="status status-green">Active</span></div>
+              <div class="dash-team-user"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Chen"><div><strong>Michael Chen</strong><small>Service Lead</small></div><span class="status status-green">Active</span></div>
+            </div>
+            <button class="btn btn-outline btn-sm dash-full-btn" onclick="window.location.href='404.html'"><i class="fas fa-user-plus"></i> Invite Team Member</button>
+          </div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-head"><h3><i class="fas fa-toggle-on"></i> System Toggles</h3></div>
+          <div class="dash-toggle-row"><div><strong>Online bookings</strong><small>Allow customers to self-book test drives</small></div><label class="dash-switch"><input type="checkbox" checked><span class="dash-switch-slider"></span></label></div>
+          <div class="dash-toggle-row"><div><strong>Maintenance mode</strong><small>Temporarily hide the showroom from visitors</small></div><label class="dash-switch"><input type="checkbox"><span class="dash-switch-slider"></span></label></div>
+          <div class="dash-toggle-row"><div><strong>Email notifications</strong><small>Send automatic lead and sale alerts</small></div><label class="dash-switch"><input type="checkbox" checked><span class="dash-switch-slider"></span></label></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

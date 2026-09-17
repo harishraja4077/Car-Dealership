@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stackly | Premium Car Dealership</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b0d10'/><circle cx='50' cy='50' r='44' fill='none' stroke='%23c9a44c' stroke-width='7'/><circle cx='50' cy='50' r='15' fill='%23c9a44c'/><rect x='46' y='10' width='8' height='30' rx='4' fill='%23c9a44c'/><rect x='46' y='60' width='8' height='30' rx='4' fill='%23c9a44c'/><rect x='10' y='46' width='30' height='8' rx='4' fill='%23c9a44c'/><rect x='60' y='46' width='30' height='8' rx='4' fill='%23c9a44c'/></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="loader">
+    <div class="loader-logo gold-text">STACKLY</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAVIGATION (Section 1) -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo logo-img">
+        <img src="Assets/logo.webp" alt="Stackly">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="inventory.html">Inventory</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="signin.html" class="nav-cta">Sign In</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="signin.html" class="btn btn-gold mobile-menu-cta">Sign In</a>
+  </div>
+
+  <!-- HERO (Section 2) -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <img src="Assets/images/hero-bg.webp" alt="Luxury sports car">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-eyebrow">Welcome to Stackly</div>
+      <h1 class="hero-title">
+        Experience The Art <br>of <span class="gold-text">Automotive</span><br>
+        <span class="stroke-text">Perfection</span>
+      </h1>
+      <p class="hero-desc">
+        Discover a curated collection of the world's finest automobiles. From powerful sports cars to elegant luxury sedans — your dream ride awaits.
+      </p>
+      <div class="hero-buttons">
+        <a href="404.html" class="btn btn-gold">Explore Inventory</a>
+        <a href="404.html" class="btn btn-outline">Schedule Test Drive</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-value">1500+</div>
+        <div class="hero-stat-label">Cars Delivered</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">20+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-value">98%</div>
+        <div class="hero-stat-label">Happy Clients</div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="mouse"></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP (Section 3) -->
+  <div class="marquee-strip">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Luxury Sedans</span><span>Sports Cars</span><span>SUVs & Crossovers</span><span>Electric Vehicles</span><span>Hybrid Performance</span><span>Certified Pre-Owned</span><span>Luxury Sedans</span><span>Sports Cars</span><span>SUVs & Crossovers</span><span>Electric Vehicles</span><span>Hybrid Performance</span><span>Certified Pre-Owned</span>
+    </div>
+  </div>
+
+  <!-- FEATURED CARS (Section 4) -->
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Our Collection</span>
+        <h2 class="section-title">Featured <span class="gold-text">Vehicles</span></h2>
+        <p class="section-subtitle">Hand-picked masterpieces from our premium showroom, each destined to turn heads.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="featured-grid">
+        <div class="car-card reveal">
+          <div class="car-card-image">
+            <img src="Assets/images/car1.webp" alt="Apex GT 2024">
+            <span class="car-card-tag tag-new">New Arrival</span>
+            <span class="car-card-price">$89,900</span>
+          </div>
+          <div class="car-card-body">
+            <h3 class="car-card-name">Apex GT 2024</h3>
+            <p class="car-card-desc">A track-bred masterpiece with a twin-turbo V8 and razor-sharp aerodynamics.</p>
+            <div class="car-card-specs">
+              <div class="car-card-spec"><i class="fas fa-tachometer-alt"></i><small>Horsepower</small><strong>650 HP</strong></div>
+              <div class="car-card-spec"><i class="fas fa-gauge"></i><small>0-60 mph</small><strong>3.4 sec</strong></div>
+              <div class="car-card-spec"><i class="fas fa-gas-pump"></i><small>Fuel Type</small><strong>Petrol</strong></div>
+            </div>
+            <a href="404.html" class="service-link">View Details </a>
+          </div>
+        </div>
+        <div class="car-card reveal reveal-delay-1">
+          <div class="car-card-image">
+            <img src="Assets/images/car2.webp" alt="Velocity 911 Turbo">
+            <span class="car-card-tag tag-new">New Arrival</span>
+            <span class="car-card-price">$125,000</span>
+          </div>
+          <div class="car-card-body">
+            <h3 class="car-card-name">Velocity 911 Turbo</h3>
+            <p class="car-card-desc">Iconic silhouette meets modern engineering perfection, built for the purist.</p>
+            <div class="car-card-specs">
+              <div class="car-card-spec"><i class="fas fa-tachometer-alt"></i><small>Horsepower</small><strong>572 HP</strong></div>
+              <div class="car-card-spec"><i class="fas fa-gauge"></i><small>0-60 mph</small><strong>2.9 sec</strong></div>
+              <div class="car-card-spec"><i class="fas fa-gas-pump"></i><small>Fuel Type</small><strong>Petrol</strong></div>
+            </div>
+            <a href="404.html" class="service-link">View Details </a>
+          </div>
+        </div>
+        <div class="car-card reveal reveal-delay-2">
+          <div class="car-card-image">
+            <img src="Assets/images/car3.webp" alt="Eclipse M5 Sedan">
+            <span class="car-card-tag tag-used">Pre-Owned</span>
+            <span class="car-card-price">$68,500</span>
+          </div>
+          <div class="car-card-body">
+            <h3 class="car-card-name">Eclipse M5 Sedan</h3>
+            <p class="car-card-desc">Luxury business sedan wrapped in horsepower — the perfect executive statement.</p>
+            <div class="car-card-specs">
+              <div class="car-card-spec"><i class="fas fa-tachometer-alt"></i><small>Horsepower</small><strong>617 HP</strong></div>
+              <div class="car-card-spec"><i class="fas fa-gauge"></i><small>0-60 mph</small><strong>3.1 sec</strong></div>
+              <div class="car-card-spec"><i class="fas fa-gas-pump"></i><small>Fuel Type</small><strong>Petrol</strong></div>
+            </div>
+            <a href="404.html" class="service-link">View Details </a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:48px;" class="reveal">
+        <a href="404.html" class="btn btn-outline">View All Vehicles </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS (Section 5) -->
+  <section class="section stats-section" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-icon"><i class="fas fa-car"></i></div>
+          <div class="stat-number gold-text" data-target="1500" data-suffix="+">0</div>
+          <div class="stat-label">Vehicles Sold</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-number gold-text" data-target="2500" data-suffix="+">0</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-icon"><i class="fas fa-award"></i></div>
+          <div class="stat-number gold-text" data-target="20" data-suffix="+">0</div>
+          <div class="stat-label">Awards Won</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-3">
+          <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
+          <div class="stat-number gold-text" data-target="25" data-suffix=" YRS">0</div>
+          <div class="stat-label">Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES / BRANDS (Section 6) -->
+  <section class="section section-alt" id="categories">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Browse By Category</span>
+        <h2 class="section-title">Find Your <span class="gold-text">Perfect Match</span></h2>
+        <p class="section-subtitle">From city efficiency to off-road dominance, explore our diverse collection.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="category-grid">
+        <div class="category-card reveal">
+          <div class="category-icon"><i class="fas fa-car"></i></div>
+          <h3 class="category-name">Sports Cars</h3>
+          <div class="category-count">48 Models</div>
+          <div class="category-arrow"></div>
+        </div>
+        <div class="category-card reveal reveal-delay-1">
+          <div class="category-icon"><i class="fas fa-car"></i></div>
+          <h3 class="category-name">SUVs</h3>
+          <div class="category-count">72 Models</div>
+          <div class="category-arrow"></div>
+        </div>
+        <div class="category-card reveal reveal-delay-2">
+          <div class="category-icon"><i class="fas fa-car-rear"></i></div>
+          <h3 class="category-name">Luxury Sedans</h3>
+          <div class="category-count">36 Models</div>
+          <div class="category-arrow"></div>
+        </div>
+        <div class="category-card reveal reveal-delay-3">
+          <div class="category-icon"><i class="fas fa-charging-station"></i></div>
+          <h3 class="category-name">Electric</h3>
+          <div class="category-count">28 Models</div>
+          <div class="category-arrow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (Section 7) -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Premium <span class="gold-text">Services</span></h2>
+        <p class="section-subtitle">Complete automotive solutions under one roof — from purchase to lifetime care.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-icon"><i class="fas fa-tag"></i></div>
+          <h3 class="service-title">Sales & Purchase</h3>
+          <p class="service-desc">Buy the car of your dreams with transparent pricing and no hidden fees.</p>
+          <a href="404.html" class="service-link">Learn More </a>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <div class="service-icon"><i class="fas fa-wrench"></i></div>
+          <h3 class="service-title">Maintenance</h3>
+          <p class="service-desc">Factory-certified technicians keep your vehicle performing at its peak.</p>
+          <a href="404.html" class="service-link">Learn More </a>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="service-title">Financing</h3>
+          <p class="service-desc">Flexible finance plans tailored to your budget with approval in minutes.</p>
+          <a href="404.html" class="service-link">Learn More </a>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">04</div>
+          <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="service-title">Warranty</h3>
+          <p class="service-desc">Comprehensive protection plans that give you total peace of mind and coverage.</p>
+          <a href="404.html" class="service-link">Learn More </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS (Section 8) -->
+  <section class="section section-alt" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Client Stories</span>
+        <h2 class="section-title">What Our <span class="gold-text">Clients Say</span></h2>
+        <p class="section-subtitle">Real experiences from people who trusted Stackly.</p>
+        <div class="section-divider"></div>
+      </div>
+      <div class="testimonial-container reveal">
+        <div class="testimonial-slider">
+          <div class="testimonial-slide active">
+            <div class="testimonial-quote-icon">"</div>
+            <p class="testimonial-text">From the moment I walked in, I felt like royalty. The team helped me find the perfect sports car and the financing was seamless. Truly a five-star experience!</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client"></div>
+              <div>
+                <div class="testimonial-name">James Anderson</div>
+                <div class="testimonial-role">Apex GT Owner</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-quote-icon">"</div>
+            <p class="testimonial-text">The after-sales service is unmatched. My car was serviced in record time and the attention to detail was remarkable. I wouldn't go anywhere else.</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client"></div>
+              <div>
+                <div class="testimonial-name">Sarah Mitchell</div>
+                <div class="testimonial-role">Eclipse M5 Owner</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <div class="testimonial-quote-icon">"</div>
+            <p class="testimonial-text">They understood exactly what I needed in an SUV for my family. Patient, professional, and passionate about cars. Highly recommended to everyone!</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar"><img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client"></div>
+              <div>
+                <div class="testimonial-name">Michael Chen</div>
+                <div class="testimonial-role">Crossover Pro Owner</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slider-dots">
+          <button class="testimonial-dot active" aria-label="Slide 1"></button>
+          <button class="testimonial-dot" aria-label="Slide 2"></button>
+          <button class="testimonial-dot" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US (Section 9) -->
+  <section class="section why-section" id="why-us">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">The Stackly <span class="gold-text">Advantage</span></h2>
+        <p class="section-divider"></p>
+      </div>
+      <div class="why-grid">
+        <div class="why-image reveal-left">
+          <img src="Assets/images/showroom.webp" alt="Luxury showroom">
+          <div class="why-image-badge">
+            <div class="why-badge-num">25+</div>
+            <div class="why-badge-text">Years of<br>Excellence</div>
+          </div>
+        </div>
+        <div class="why-items">
+          <div class="why-item reveal-right">
+            <div class="why-item-icon"><i class="fas fa-gem"></i></div>
+            <div class="why-item-text">
+              <h4>Certified Quality</h4>
+              <p>Every vehicle undergoes a rigorous 200-point inspection by our master technicians.</p>
+            </div>
+          </div>
+          <div class="why-item reveal-right reveal-delay-1">
+            <div class="why-item-icon"><i class="fas fa-handshake"></i></div>
+            <div class="why-item-text">
+              <h4>Transparent Dealings</h4>
+              <p>No hidden charges. What you see is exactly what you pay — every single time.</p>
+            </div>
+          </div>
+          <div class="why-item reveal-right reveal-delay-2">
+            <div class="why-item-icon"><i class="fas fa-headset"></i></div>
+            <div class="why-item-text">
+              <h4>24/7 Support</h4>
+              <p>Our dedicated team is available around the clock for all your automotive needs.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWROOM SPOTLIGHT (Section 10) -->
+  <section class="section showroom" id="showroom">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Showroom Spotlight</span>
+        <h2 class="section-title">Step Into <span class="gold-text">Our World</span></h2>
+        <p class="section-divider"></p>
+      </div>
+      <div class="showroom-card reveal-scale">
+        <div class="showroom-image">
+          <img src="Assets/images/car7.webp" alt="Luxury car in showroom">
+        </div>
+        <div class="showroom-content">
+          <div class="showroom-brand">Phantom Royale <span class="gold-text">Edition</span></div>
+          <p class="showroom-desc">Limited to just 50 units worldwide, this flagship beauty combines handcrafted luxury with breathtaking performance.</p>
+          <div class="showroom-features">
+            <div class="showroom-feature"><i class="fas fa-check"></i> Hand-Stitched Interior</div>
+            <div class="showroom-feature"><i class="fas fa-check"></i> V12 Engine</div>
+            <div class="showroom-feature"><i class="fas fa-check"></i> 24K Gold Accents</div>
+            <div class="showroom-feature"><i class="fas fa-check"></i> Concierge Service</div>
+          </div>
+          <div class="showroom-cta">
+            <a href="404.html" class="btn btn-gold">Book Now </a>
+            <a href="404.html" class="btn btn-outline">Ask a Question</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND BAR -->
+  <div class="brands-bar">
+    <div class="container">
+      <div class="brands-row">
+        <div class="brand-item"><i class="fas fa-crown"></i></div>
+        <div class="brand-item">VELOCE</div>
+        <div class="brand-item">APEX</div>
+        <div class="brand-item">ELEGANTE</div>
+        <div class="brand-item">NOVA</div>
+        <div class="brand-item"><i class="fas fa-star"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <div class="newsletter-content reveal">
+        <h2>Stay In The <span class="gold-text">Driver's Seat</span></h2>
+        <p>Subscribe to receive exclusive offers, new arrivals, and insider news from Stackly.</p>
+        <form class="newsletter-form" novalidate>
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo logo-img">
+            <img src="Assets/logo.webp" alt="Stackly">
+          </a>
+          <p>For over 25 years, Stackly has been the trusted destination for world-class automobiles. Drive excellence, drive luxury.</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Car Sales</a></li>
+            <li><a href="404.html">Maintenance</a></li>
+            <li><a href="404.html">Financing</a></li>
+            <li><a href="404.html">Trade-In</a></li>
+            <li><a href="404.html">Warranty</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</li>
+            <li><i class="fas fa-phone"></i> +91 70107 92745</li>
+            <li><i class="fas fa-envelope"></i> thestackly@gmail.com</li>
+            <li><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 8:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">FAQs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Contact -->
+  <div class="float-contact">
+    <a href="404.html" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>

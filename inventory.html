@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory | Stackly</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b0d10'/><circle cx='50' cy='50' r='44' fill='none' stroke='%23c9a44c' stroke-width='7'/><circle cx='50' cy='50' r='15' fill='%23c9a44c'/><rect x='46' y='10' width='8' height='30' rx='4' fill='%23c9a44c'/><rect x='46' y='60' width='8' height='30' rx='4' fill='%23c9a44c'/><rect x='10' y='46' width='30' height='8' rx='4' fill='%23c9a44c'/><rect x='60' y='46' width='30' height='8' rx='4' fill='%23c9a44c'/></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div class="loader">
+    <div class="loader-logo gold-text">STACKLY</div>
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- NAVIGATION (Section 1) -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo logo-img">
+        <img src="Assets/logo.webp" alt="Stackly">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="inventory.html" class="active">Inventory</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="signin.html" class="nav-cta">Sign In</a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="signin.html" class="btn btn-gold mobile-menu-cta">Sign In</a>
+  </div>
+
+  <!-- PAGE HERO (Section 2) -->
+  <section class="page-hero" id="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container">
+      <h1>Our <span class="gold-text">Inventory</span></h1>
+      <p>Explore our exclusive collection of premium vehicles, meticulously curated and certified for perfection.</p>
+      <div class="breadcrumb">
+        <span><i class="fas fa-home"></i> Home</span>
+        <i class="fas fa-chevron-right" style="font-size:.6rem;"></i>
+        <span style="color:var(--gold);">Inventory</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTER + GRID (Section 3) -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <form class="filter-bar reveal active" onsubmit="event.preventDefault();">
+        <div class="filter-group">
+          <label>Type</label>
+          <select class="filter-select">
+            <option value="">All Types</option>
+            <option>Sports</option>
+            <option>Sedan</option>
+            <option>SUV</option>
+            <option>Electric</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Brand</label>
+          <select class="filter-select">
+            <option value="">All Brands</option>
+            <option>APEX</option>
+            <option>VELOCE</option>
+            <option>ELEGANTE</option>
+            <option>NOVA</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Price</label>
+          <select class="filter-select">
+            <option value="">Any Price</option>
+            <option>Under $50K</option>
+            <option>$50K - $100K</option>
+            <option>$100K - $200K</option>
+          </select>
+        </div>
+        <div class="filter-search">
+          <input type="search" placeholder="Search by name or keywords...">
+          <i class="fas fa-search"></i>
+        </div>
+      </form>
+
+      <div class="inventory-grid">
+        <div class="inventory-card reveal">
+          <div class="inventory-image">
+            <img src="Assets/images/car1.webp" alt="Apex GT 2024">
+            <span class="inventory-badge">New</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Apex GT 2024 <span class="inventory-price">$89,900</span></div>
+            <p class="inventory-desc">Twin-turbo V8 sports coupe with track-ready performance.</p>
+            <div class="inventory-meta">
+              <span><strong>650</strong> HP</span>
+              <span><strong>3.4s</strong> 0-60</span>
+              <span><strong>2024</strong> Year</span>
+              <span><strong>Petrol</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal reveal-delay-1">
+          <div class="inventory-image">
+            <img src="Assets/images/car2.webp" alt="Velocity 911 Turbo">
+            <span class="inventory-badge">New</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Velocity 911 Turbo <span class="inventory-price">$125,000</span></div>
+            <p class="inventory-desc">Iconic engineering meets everyday usability in brilliant style.</p>
+            <div class="inventory-meta">
+              <span><strong>572</strong> HP</span>
+              <span><strong>2.9s</strong> 0-60</span>
+              <span><strong>2024</strong> Year</span>
+              <span><strong>Petrol</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal reveal-delay-2">
+          <div class="inventory-image">
+            <img src="Assets/images/car3.webp" alt="Eclipse M5 Sedan">
+            <span class="inventory-badge" style="background:#fff;color:var(--dark);">Pre-Owned</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Eclipse M5 Sedan <span class="inventory-price">$68,500</span></div>
+            <p class="inventory-desc">Executive luxury sedan with supercar- power level performance.</p>
+            <div class="inventory-meta">
+              <span><strong>617</strong> HP</span>
+              <span><strong>3.1s</strong> 0-60</span>
+              <span><strong>2023</strong> Year</span>
+              <span><strong>Petrol</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal">
+          <div class="inventory-image">
+            <img src="Assets/images/car4.webp" alt="Nova Electric S">
+            <span class="inventory-badge">Electric</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Nova Electric S <span class="inventory-price">$94,200</span></div>
+            <p class="inventory-desc">Zero emissions, infinite thrill — the future of performance.</p>
+            <div class="inventory-meta">
+              <span><strong>670</strong> HP</span>
+              <span><strong>2.6s</strong> 0-60</span>
+              <span><strong>2024</strong> Year</span>
+              <span><strong>Electric</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal reveal-delay-1">
+          <div class="inventory-image">
+            <img src="Assets/images/car5.webp" alt="Crossover Pro SUV">
+            <span class="inventory-badge">SUV</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Crossover Pro SUV <span class="inventory-price">$76,800</span></div>
+            <p class="inventory-desc">Luxury and capability — commanding presence on every road.</p>
+            <div class="inventory-meta">
+              <span><strong>453</strong> HP</span>
+              <span><strong>4.5s</strong> 0-60</span>
+              <span><strong>2024</strong> Year</span>
+              <span><strong>Hybrid</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal reveal-delay-2">
+          <div class="inventory-image">
+            <img src="Assets/images/car6.webp" alt="Elegante Cabriolet">
+            <span class="inventory-badge">New</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Elegante Cabriolet <span class="inventory-price">$112,400</span></div>
+            <p class="inventory-desc">Open-air luxury with a performance that runs deep speed.</p>
+            <div class="inventory-meta">
+              <span><strong>540</strong> HP</span>
+              <span><strong>3.6s</strong> 0-60</span>
+              <span><strong>2024</strong> Year</span>
+              <span><strong>Petrol</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal">
+          <div class="inventory-image">
+            <img src="Assets/images/car7.webp" alt="Phantom Royale">
+            <span class="inventory-badge" style="background:#fff;color:var(--dark);">Limited</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Phantom Royale <span class="inventory-price">$298,000</span></div>
+            <p class="inventory-desc">Handcrafted flagship — the pinnacle of automotive luxury.</p>
+            <div class="inventory-meta">
+              <span><strong>563</strong> HP</span>
+              <span><strong>5.1s</strong> 0-60</span>
+              <span><strong>2024</strong> Year</span>
+              <span><strong>V12</strong> Engine</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="inventory-card reveal reveal-delay-1">
+          <div class="inventory-image">
+            <img src="Assets/images/car8.webp" alt="Apex Coupe GT">
+            <span class="inventory-badge" style="background:#fff;color:var(--dark);">Pre-Owned</span>
+            <button class="inventory-fav" aria-label="Save"><i class="far fa-heart"></i></button>
+          </div>
+          <div class="inventory-body">
+            <div class="inventory-name">Apex Coupe GT <span class="inventory-price">$54,700</span></div>
+            <p class="inventory-desc">A timeless coupe delivering pure driving pleasure daily performance.</p>
+            <div class="inventory-meta">
+              <span><strong>402</strong> HP</span>
+              <span><strong>4.8s</strong> 0-60</span>
+              <span><strong>2022</strong> Year</span>
+              <span><strong>Petrol</strong> Fuel</span>
+            </div>
+            <div class="inventory-actions">
+              <button class="inventory-btn inventory-btn-detail" onclick="window.location.href='404.html'"><i class="fas fa-info-circle"></i> Details</button>
+              <button class="inventory-btn inventory-btn-book" onclick="window.location.href='404.html'"><i class="fas fa-calendar-check"></i> Test Drive</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAGINATION (Section 4) -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="pagination reveal">
+        <button class="page-btn disabled" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="page-btn active" onclick="window.location.href='404.html'">1</button>
+        <button class="page-btn" onclick="window.location.href='404.html'">2</button>
+        <button class="page-btn" onclick="window.location.href='404.html'">3</button>
+        <button class="page-btn" aria-label="Next" onclick="window.location.href='404.html'"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCING BANNER (Section 5) -->
+  <section class="section stats-section">
+    <div class="container">
+      <div style="text-align:center; max-width:700px; margin:0 auto 48px;" class="reveal">
+        <span class="section-tag">Financing Made Easy</span>
+        <h2 class="section-title">Drive Today, <span class="gold-text">Pay Tomorrow</span></h2>
+        <p class="section-subtitle" style="margin-top:12px;">Flexible financing options with approvals in as little as 15 minutes.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-icon"><i class="fas fa-percent"></i></div>
+          <div class="stat-number gold-text" data-target="3" data-suffix="%">0%</div>
+          <div class="stat-label">Starting APR</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-1">
+          <div class="stat-icon"><i class="fas fa-clock"></i></div>
+          <div class="stat-number gold-text" data-target="15" data-suffix=" MIN">0 MIN</div>
+          <div class="stat-label">Approval Time</div>
+        </div>
+        <div class="stat-item reveal reveal-delay-2">
+          <div class="stat-icon"><i class="fas fa-building-columns"></i></div>
+          <div class="stat-number gold-text" data-target="12" data-suffix="+">0</div>
+          <div class="stat-label">Lending Partners</div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:48px;" class="reveal">
+        <a href="404.html" class="btn btn-gold">Get Pre-Approved </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER (Section 6) -->
+  <section class="newsletter" style="padding:80px 0;">
+    <div class="container">
+      <div class="newsletter-content reveal">
+        <h2>Stay Updated on <span class="gold-text">New Arrivals</span></h2>
+        <p>Be the first to know as soon as new vehicles hit our showroom floor.</p>
+        <form class="newsletter-form" novalidate>
+          <input type="email" placeholder="Enter your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE STRIP (Section 7) -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>New Arrivals Weekly</span><span>Certified Pre-Owned</span><span>Best Price Guarantee</span><span>Trade-In Welcome</span><span>New Arrivals Weekly</span><span>Certified Pre-Owned</span><span>Best Price Guarantee</span><span>Trade-In Welcome</span>
+    </div>
+  </div>
+
+  <!-- FOOTER (Section 8) -->
+  <footer class="footer" style="border-top:none; background:var(--dark);">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="index.html" class="logo logo-img">
+            <img src="Assets/logo.webp" alt="Stackly">
+          </a>
+          <p>For over 25 years, Stackly has been the trusted destination for world-class automobiles.</p>
+          <div class="footer-social">
+            <a href="404.html" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="404.html" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="404.html" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="404.html" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-title">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="404.html">Car Sales</a></li>
+            <li><a href="404.html">Maintenance</a></li>
+            <li><a href="404.html">Financing</a></li>
+            <li><a href="404.html">Trade-In</a></li>
+            <li><a href="404.html">Warranty</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</li>
+            <li><i class="fas fa-phone"></i> +91 70107 92745</li>
+            <li><i class="fas fa-envelope"></i> thestackly@gmail.com</li>
+            <li><i class="fas fa-clock"></i> Mon - Sat: 9:00 AM - 8:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Stackly. All Rights Reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">Terms of Service</a>
+          <a href="404.html">FAQs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Contact -->
+  <div class="float-contact">
+    <a href="404.html" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
