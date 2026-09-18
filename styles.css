@@ -2694,6 +2694,25 @@ ul { list-style: none; }
 .auth-terms a:hover { text-decoration: underline; }
 
 /* ==== NOT-FOUND / 404 PAGE ==== */
+.error-page {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.error-page .not-found-main {
+  height: 100vh;
+}
+@media (max-height: 720px) {
+  .error-page .not-found-main { padding: 100px 24px 40px; }
+  .error-page .not-found-code { margin-bottom: 16px; }
+  .error-page .not-found-digit,
+  .error-page .not-found-wheel-outer { font-size: 6rem; width: 6rem; height: 6rem; }
+  .error-page .not-found-wheel { width: 68%; height: 68%; }
+  .error-page .not-found-badge p { margin-bottom: 20px; }
+  .error-page .not-found-road { height: 50px; }
+}
 .not-found-main {
   position: relative;
   min-height: 100vh;
